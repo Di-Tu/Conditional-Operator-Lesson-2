@@ -5,7 +5,7 @@ public class Main {
         //        Task № 1
         System.out.println();
         System.out.println("          Задача №1");
-        byte clientOS = 0;
+        byte clientOS = 1;
         if (clientOS == 1) {
             System.out.println("Установите версию приложения для Android по ссылке");
         } else {
@@ -16,40 +16,29 @@ public class Main {
         System.out.println();
         System.out.println("          Задача №2");
         int clientDeviceYear = 2015;
-        if (clientOS == 1) {
-            if (clientDeviceYear > 2015) {
-                System.out.println("Установите версию приложения для Android по ссылке");
-            } else {
-                System.out.println("Установите облегченную версию приложения для Android по ссылке");
-            }
-        } else if (clientDeviceYear > 2015) {
-            System.out.println("Установите версию приложения для iOS по ссылке");
-        } else {
-            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+        if (clientDeviceYear < 2015 && clientOS == 1) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке");
+        } else if (clientOS == 1) {
+            System.out.println("Установите версию приложения для Android по ссылке");
+        }
+        if (clientDeviceYear < 2015 && clientOS == 0) {
+            System.out.println("Установите облегченную версию приложения для iOs по ссылке");
+        } else if (clientOS == 0) {
+            System.out.println("Установите версию приложения для iOs по ссылке");
         }
 
         //        Task № 3
         System.out.println();
         System.out.println("          Задача №3");
         int year = 2021;
-        boolean leapYear;
-        if ((year % 4) == 0) {
-            if ((year % 100) == 0 && (year % 400) == 0) {
-                leapYear = true;
-            } else if ((year % 100) != 0) {
-                leapYear = true;
-            } else {
-                leapYear = false;
-            }
-        } else {
-            leapYear = false;
-        }
         if (year < 1584) {
             System.out.println("Введите более поздний год, чем 1584 год");
-        } else if (leapYear) {
-            System.out.println("Год " + year + " високосный");
-        } else {
+        } else if ((year % 4) != 0) {
             System.out.println("Год " + year + " не високосный");
+        } else if ((year % 4) == 0 && (year % 100) == 0 && (year % 400) != 0) {
+            System.out.println("Год " + year + " не високосный");
+        } else {
+            System.out.println("Год " + year + " високосный");
         }
 
         //        Task № 4
